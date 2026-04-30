@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Todo App</h1>
+    <div class="new-todo">
+        <input type="text" id="new-todo-name" placeholder="New Todo">
+        <textarea id="new-todo-description" placeholder="Description"></textarea>
+        <button id="add-todo">Add Todo</button>
+    </div>
+    <ul class="todo-list" id="todo-list">
+        <li class="todo-item">
+            <input type="checkbox">
+            <span class="todo-text">todo1</span>
+            <button class="delete-btn">Delete</button>
+            <div class="todo-description"></div>
+        </li>
+        <li class="todo-item">
+            <input type="checkbox">
+            <span class="todo-text">todo2</span>
+            <button class="delete-btn">Delete</button>
+            <div class="todo-description"></div>
+        </li>
+    </ul>
+
+    <script src="script.js"></script>
+</body>
+</html>
