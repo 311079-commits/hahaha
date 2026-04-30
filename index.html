@@ -7,26 +7,52 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Todo App</h1>
-    <div class="new-todo">
-        <input type="text" id="new-todo-name" placeholder="New Todo">
-        <textarea id="new-todo-description" placeholder="Description"></textarea>
-        <button id="add-todo">Add Todo</button>
+    <div class="app-shell">
+        <div class="app-card">
+            <header class="app-header">
+                <div>
+                    <p class="eyebrow">輕鬆管理你的待辦清單</p>
+                    <h1>Todo App</h1>
+                </div>
+                <span class="app-tag">簡潔、清爽、實用</span>
+            </header>
+
+            <section class="new-todo">
+                <label for="new-todo-name">標題</label>
+                <input type="text" id="new-todo-name" placeholder="新增工作">
+                <label for="new-todo-description">描述</label>
+                <textarea id="new-todo-description" placeholder="輸入詳細內容 (選填)"></textarea>
+                <button id="add-todo">新增待辦</button>
+            </section>
+
+            <section class="todo-panel">
+                <div class="todo-panel-header">
+                    <h2>待辦清單</h2>
+                    <p>點擊項目名稱顯示 / 隱藏描述</p>
+                </div>
+                <ul class="todo-list" id="todo-list">
+                    <li class="todo-item">
+                        <label class="todo-checkbox">
+                            <input type="checkbox">
+                            <span class="checkbox-custom"></span>
+                        </label>
+                        <button type="button" class="todo-text">買牛奶</button>
+                        <button type="button" class="delete-btn" aria-label="Delete todo">刪除</button>
+                        <div class="todo-description">到超市購入一瓶鮮奶，記得看看保存期限。</div>
+                    </li>
+                    <li class="todo-item">
+                        <label class="todo-checkbox">
+                            <input type="checkbox">
+                            <span class="checkbox-custom"></span>
+                        </label>
+                        <button type="button" class="todo-text">完成報告</button>
+                        <button type="button" class="delete-btn" aria-label="Delete todo">刪除</button>
+                        <div class="todo-description">整理資料、撰寫結論並上傳至共享雲端。</div>
+                    </li>
+                </ul>
+            </section>
+        </div>
     </div>
-    <ul class="todo-list" id="todo-list">
-        <li class="todo-item">
-            <input type="checkbox">
-            <span class="todo-text">todo1</span>
-            <button class="delete-btn">Delete</button>
-            <div class="todo-description"></div>
-        </li>
-        <li class="todo-item">
-            <input type="checkbox">
-            <span class="todo-text">todo2</span>
-            <button class="delete-btn">Delete</button>
-            <div class="todo-description"></div>
-        </li>
-    </ul>
 
     <script src="script.js"></script>
 </body>

@@ -18,10 +18,13 @@ document.addEventListener('DOMContentLoaded', function() {
         const li = document.createElement('li');
         li.className = 'todo-item';
         li.innerHTML = `
-            <input type="checkbox">
-            <span class="todo-text">${name}</span>
-            <button class="delete-btn">Delete</button>
-            <div class="todo-description">${description}</div>
+            <label class="todo-checkbox">
+                <input type="checkbox">
+                <span class="checkbox-custom"></span>
+            </label>
+            <button type="button" class="todo-text">${escapeHtml(name)}</button>
+            <button type="button" class="delete-btn" aria-label="Delete todo">刪除</button>
+            <div class="todo-description">${escapeHtml(description)}</div>
         `;
         todoList.appendChild(li);
         attachEvents(li);
@@ -31,6 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const deleteBtn = li.querySelector('.delete-btn');
         const todoText = li.querySelector('.todo-text');
         const description = li.querySelector('.todo-description');
+        const checkbox = li.querySelector('input[type="checkbox"]');
 
         deleteBtn.addEventListener('click', function() {
             li.remove();
@@ -39,9 +43,21 @@ document.addEventListener('DOMContentLoaded', function() {
         todoText.addEventListener('click', function() {
             description.classList.toggle('show');
         });
+
+        checkbox.addEventListener('change', function() {
+            li.classList.toggle('completed', checkbox.checked);
+        });
     }
 
-    // Attach events to initial todos
+    function escapeHtml(text) {
+        return text
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#039;');
+    }
+
     const initialTodos = document.querySelectorAll('.todo-item');
     initialTodos.forEach(attachEvents);
 });
